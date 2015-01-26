@@ -1,9 +1,8 @@
-## this is a lab project named Tribber in cmu 15-440, this project implements
-a micro blog.
+### this is a lab project named Tribber in cmu 15-440, this project implements a micro blog.
 
-# Running code
+## Running code
 
-## The srunner program is storage server runner
+### The srunner program is storage server runner
 
 ```
     # start a single master storage server on port 9009
@@ -18,7 +17,7 @@ a micro blog.
 ```
 in the above example you don't need to specify a port for your slave server.
 
-## The lrunner program is libstore-runner
+### The lrunner program is libstore-runner
 it runs an instance of libstore implemention. It enables you to execute lib-
 store methods from the command line.
 
@@ -32,7 +31,7 @@ store methods from the command line.
 
 ```
 
-## The trunner program is tribbler server runner
+### The trunner program is tribbler server runner
 
 It creates and runs an instance of your TribServer implemention.
 
@@ -42,4 +41,4 @@ It creates and runs an instance of your TribServer implemention.
     ./trunner -port=9010 localhost:9009
 ```
 
-## The crunner program creates and runs an instance of the TribClient
+### The crunner program creates and runs an instance of the TribClient
