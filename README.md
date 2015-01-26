@@ -1,4 +1,4 @@
-this is a lab project named Tribber in cmu 15-440, this project implements
+## this is a lab project named Tribber in cmu 15-440, this project implements
 a micro blog.
 
 # Running code
