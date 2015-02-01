@@ -75,12 +75,12 @@ type LSAppendList struct {
 /******************************
  * Storage Server
  ******************************/
-type SSRegister struct {
+type SSRegisterServer struct {
 	Arg   *storagerpc.RegisterArgs
 	Reply chan *storagerpc.RegisterReply
 }
 
-type SSGetServer struct {
+type SSGetServers struct {
 	Reply chan *storagerpc.GetServersReply
 }
 

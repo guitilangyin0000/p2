@@ -1,0 +1,402 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AddSubscription	tests/stresstest/stresstest.go	/^	AddSubscription$/;"	c
+AddSubscription	tribclient/tribclient_impl.go	/^func (tc *tribClient) AddSubscription(userID, targetUserID string) (tribrpc.Status, error) {$/;"	f
+AddSubscription	tribserver/tribserver_impl.go	/^func (ts *tribServer) AddSubscription(args *tribrpc.SubscriptionArgs, reply *tribrpc.SubscriptionReply) (e error) {$/;"	f
+Always	libstore/libstore_api.go	/^	Always                  \/\/ Always request leases.$/;"	c
+AppendToList	libstore/libstore_impl.go	/^func (ls *libstore) AppendToList(key, newItem string) (e error) {$/;"	f
+AppendToList	storageserver/storageserver_impl.go	/^func (ss *storageServer) AppendToList(args *storagerpc.PutArgs, reply *storagerpc.PutReply) error {$/;"	f
+AppendToList	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) AppendToList(args *storagerpc.PutArgs, reply *storagerpc.PutReply) error {$/;"	f
+AppendToList	tests/storagetest/storagetest.go	/^func (st *storageTester) AppendToList(key, newitem string) (*storagerpc.PutReply, error) {$/;"	f
+Close	tribclient/tribclient_impl.go	/^func (tc *tribClient) Close() error {$/;"	f
+CreateUser	tribclient/tribclient_impl.go	/^func (tc *tribClient) CreateUser(userID string) (tribrpc.Status, error) {$/;"	f
+CreateUser	tribserver/tribserver_impl.go	/^func (ts *tribServer) CreateUser(args *tribrpc.CreateUserArgs, reply *tribrpc.CreateUserReply) (e error) {$/;"	f
+CreateUserArgs	rpc/tribrpc/proto.go	/^type CreateUserArgs struct {$/;"	t
+CreateUserReply	rpc/tribrpc/proto.go	/^type CreateUserReply struct {$/;"	t
+DisableLease	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) DisableLease() {$/;"	f
+EnableLease	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) EnableLease() {$/;"	f
+Exists	rpc/tribrpc/proto.go	/^	Exists                             \/\/ The specified UserID or TargerUserID already exists.$/;"	c
+Get	libstore/libstore_impl.go	/^func (ls *libstore) Get(key string) (v string, e error) {$/;"	f
+Get	storageserver/storageserver_impl.go	/^func (ss *storageServer) Get(args *storagerpc.GetArgs, reply *storagerpc.GetReply) error {$/;"	f
+Get	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) Get(args *storagerpc.GetArgs, reply *storagerpc.GetReply) error {$/;"	f
+Get	tests/storagetest/storagetest.go	/^func (st *storageTester) Get(key string, wantlease bool) (*storagerpc.GetReply, error) {$/;"	f
+GetArgs	rpc/storagerpc/proto.go	/^type GetArgs struct {$/;"	t
+GetByteCount	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) GetByteCount() uint32 {$/;"	f
+GetLeaseGrantedCount	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) GetLeaseGrantedCount() uint32 {$/;"	f
+GetLeaseRequestCount	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) GetLeaseRequestCount() uint32 {$/;"	f
+GetList	libstore/libstore_impl.go	/^func (ls *libstore) GetList(key string) (l []string, e error) {$/;"	f
+GetList	storageserver/storageserver_impl.go	/^func (ss *storageServer) GetList(args *storagerpc.GetArgs, reply *storagerpc.GetListReply) error {$/;"	f
+GetList	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) GetList(args *storagerpc.GetArgs, reply *storagerpc.GetListReply) error {$/;"	f
+GetList	tests/storagetest/storagetest.go	/^func (st *storageTester) GetList(key string, wantlease bool) (*storagerpc.GetListReply, error) {$/;"	f
+GetListReply	rpc/storagerpc/proto.go	/^type GetListReply struct {$/;"	t
+GetReply	rpc/storagerpc/proto.go	/^type GetReply struct {$/;"	t
+GetRpcCount	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) GetRpcCount() uint32 {$/;"	f
+GetServers	storageserver/storageserver_impl.go	/^func (ss *storageServer) GetServers(args *storagerpc.GetServersArgs, reply *storagerpc.GetServersReply) error {$/;"	f
+GetServers	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) GetServers(args *storagerpc.GetServersArgs, reply *storagerpc.GetServersReply) error {$/;"	f
+GetServers	tests/storagetest/storagetest.go	/^func (st *storageTester) GetServers() (*storagerpc.GetServersReply, error) {$/;"	f
+GetServersArgs	rpc/storagerpc/proto.go	/^type GetServersArgs struct {$/;"	t
+GetServersReply	rpc/storagerpc/proto.go	/^type GetServersReply struct {$/;"	t
+GetSubscription	tests/stresstest/stresstest.go	/^	GetSubscription = iota$/;"	c
+GetSubscriptions	tribclient/tribclient_impl.go	/^func (tc *tribClient) GetSubscriptions(userID string) ([]string, tribrpc.Status, error) {$/;"	f
+GetSubscriptions	tribserver/tribserver_impl.go	/^func (ts *tribServer) GetSubscriptions(args *tribrpc.GetSubscriptionsArgs, reply *tribrpc.GetSubscriptionsReply) (e error) {$/;"	f
+GetSubscriptionsArgs	rpc/tribrpc/proto.go	/^type GetSubscriptionsArgs struct {$/;"	t
+GetSubscriptionsReply	rpc/tribrpc/proto.go	/^type GetSubscriptionsReply struct {$/;"	t
+GetTribbles	tests/stresstest/stresstest.go	/^	GetTribbles$/;"	c
+GetTribbles	tribclient/tribclient_impl.go	/^func (tc *tribClient) GetTribbles(userID string) ([]tribrpc.Tribble, tribrpc.Status, error) {$/;"	f
+GetTribbles	tribserver/tribserver_impl.go	/^func (ts *tribServer) GetTribbles(args *tribrpc.GetTribblesArgs, reply *tribrpc.GetTribblesReply) (e error) {$/;"	f
+GetTribblesArgs	rpc/tribrpc/proto.go	/^type GetTribblesArgs struct {$/;"	t
+GetTribblesBySubscription	tests/stresstest/stresstest.go	/^	GetTribblesBySubscription$/;"	c
+GetTribblesBySubscription	tribclient/tribclient_impl.go	/^func (tc *tribClient) GetTribblesBySubscription(userID string) ([]tribrpc.Tribble, tribrpc.Status, error) {$/;"	f
+GetTribblesBySubscription	tribserver/tribserver_impl.go	/^func (ts *tribServer) GetTribblesBySubscription(args *tribrpc.GetTribblesArgs, reply *tribrpc.GetTribblesReply) (e error) {$/;"	f
+GetTribblesReply	rpc/tribrpc/proto.go	/^type GetTribblesReply struct {$/;"	t
+ItemExists	rpc/storagerpc/proto.go	/^	ItemExists                     \/\/ The item already exists in the list.$/;"	c
+ItemNotFound	rpc/storagerpc/proto.go	/^	ItemNotFound                   \/\/ The specified item does not exist.$/;"	c
+KeyNotFound	rpc/storagerpc/proto.go	/^	KeyNotFound                    \/\/ The specified key does not exist.$/;"	c
+LOGE	libstore/libstore_impl.go	/^	LOGE = log.New(os.Stderr, "ERROR ", log.Lmicroseconds|log.Lshortfile)$/;"	v
+LOGE	storageserver/storageserver_impl.go	/^	LOGE = log.New(os.Stderr, "Error: ", log.Lmicroseconds|log.Lshortfile)$/;"	v
+LOGE	tests/libtest/libtest.go	/^var LOGE = log.New(os.Stderr, "", log.Lshortfile|log.Lmicroseconds)$/;"	v
+LOGE	tests/storagetest/storagetest.go	/^var LOGE = log.New(os.Stderr, "", log.Lshortfile|log.Lmicroseconds)$/;"	v
+LOGE	tests/stresstest/stresstest.go	/^var LOGE = log.New(os.Stderr, "", log.Lshortfile|log.Lmicroseconds)$/;"	v
+LOGE	tests/tribtest/tribtest.go	/^var LOGE = log.New(os.Stderr, "", log.Lshortfile|log.Lmicroseconds)$/;"	v
+LOGE	tribserver/tribserver_impl.go	/^	LOGE = log.New(os.Stderr, "ERROR ", log.Lmicroseconds|log.Lshortfile)$/;"	v
+LOGV	libstore/libstore_impl.go	/^	LOGV = log.New(os.Stdout, "VERBOSE ", log.Lmicroseconds|log.Lshortfile)$/;"	v
+LOGV	storageserver/storageserver_impl.go	/^	LOGV = log.New(os.Stdout, "Verbose: ", log.Lmicroseconds|log.Lshortfile)$/;"	v
+LOGV	tests/stresstest/stresstest.go	/^var LOGV = log.New(os.Stdout, "VERBOSE ", log.Lmicroseconds|log.Lshortfile)$/;"	v
+LOGV	tribserver/tribserver_impl.go	/^	LOGV = log.New(os.Stdout, "VERBOSE ", log.Lmicroseconds|log.Lshortfile)$/;"	v
+LSAppendList	events/events.go	/^type LSAppendList struct {$/;"	t
+LSAppendListReply	events/events.go	/^type LSAppendListReply struct {$/;"	t
+LSGet	events/events.go	/^type LSGet struct {$/;"	t
+LSGetList	events/events.go	/^type LSGetList struct {$/;"	t
+LSGetListReply	events/events.go	/^type LSGetListReply struct {$/;"	t
+LSGetReply	events/events.go	/^type LSGetReply struct {$/;"	t
+LSPut	events/events.go	/^type LSPut struct {$/;"	t
+LSPutReply	events/events.go	/^type LSPutReply struct {$/;"	t
+LSRemoveList	events/events.go	/^type LSRemoveList struct {$/;"	t
+LSRemoveListReply	events/events.go	/^type LSRemoveListReply struct {$/;"	t
+LSRevokeLease	events/events.go	/^type LSRevokeLease struct {$/;"	t
+LSRevokeLeaseReply	events/events.go	/^type LSRevokeLeaseReply struct {$/;"	t
+Lease	rpc/storagerpc/proto.go	/^type Lease struct {$/;"	t
+LeaseCallbacks	libstore/libstore_api.go	/^type LeaseCallbacks interface {$/;"	t
+LeaseCallbacks	rpc/librpc/rpc.go	/^type LeaseCallbacks struct {$/;"	t
+LeaseGuardSeconds	rpc/storagerpc/proto.go	/^	LeaseGuardSeconds = 2  \/\/ Additional seconds a server should wait before invalidating a lease.$/;"	c
+LeaseMode	libstore/libstore_api.go	/^type LeaseMode int$/;"	t
+LeaseSeconds	rpc/storagerpc/proto.go	/^	LeaseSeconds      = 10 \/\/ Number of seconds a lease should remain valid.$/;"	c
+Len	storageserver/storageserver_impl.go	/^func (list nodeList) Len() int           { return len(list) }$/;"	f
+Less	storageserver/storageserver_impl.go	/^func (list nodeList) Less(i, j int) bool { return list[i].NodeID < list[j].NodeID }$/;"	f
+Libstore	libstore/libstore_api.go	/^type Libstore interface {$/;"	t
+Never	libstore/libstore_api.go	/^	Never  LeaseMode = iota \/\/ Never request leases.$/;"	c
+NewLibstore	libstore/libstore_impl.go	/^func NewLibstore(masterServerHostPort, myHostPort string, mode LeaseMode) (store Libstore, e error) {$/;"	f
+NewProxyCounter	tests/proxycounter/proxycounter.go	/^func NewProxyCounter(serverHostPort, myHostPort string) (ProxyCounter, error) {$/;"	f
+NewStorageServer	storageserver/storageserver_impl.go	/^func NewStorageServer(masterServerHostPort string, numNodes, port int, nodeID uint32) (StorageServer, error) {$/;"	f
+NewTribClient	tribclient/tribclient_impl.go	/^func NewTribClient(serverHost string, serverPort int) (TribClient, error) {$/;"	f
+NewTribServer	tribserver/tribserver_impl.go	/^func NewTribServer(masterServerHostPort, myHostPort string) (server TribServer, e error) {$/;"	f
+NoSuchTargetUser	rpc/tribrpc/proto.go	/^	NoSuchTargetUser                   \/\/ The specified TargerUserID does not exist.$/;"	c
+NoSuchUser	rpc/tribrpc/proto.go	/^	NoSuchUser                         \/\/ The specified UserID does not exist.$/;"	c
+Node	rpc/storagerpc/proto.go	/^type Node struct {$/;"	t
+Normal	libstore/libstore_api.go	/^	Normal                  \/\/ Behave as normal.$/;"	c
+NotReady	rpc/storagerpc/proto.go	/^	NotReady                       \/\/ The storage servers are still getting ready.$/;"	c
+OK	rpc/storagerpc/proto.go	/^	OK           Status = iota + 1 \/\/ The RPC was a success.$/;"	c
+OK	rpc/tribrpc/proto.go	/^	OK               Status = iota + 1 \/\/ The RPC was a success.$/;"	c
+OverrideErr	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) OverrideErr() {$/;"	f
+OverrideLeaseSeconds	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) OverrideLeaseSeconds(leaseSeconds int) {$/;"	f
+OverrideOff	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) OverrideOff() {$/;"	f
+OverrideStatus	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) OverrideStatus(status storagerpc.Status) {$/;"	f
+PostTribble	tests/stresstest/stresstest.go	/^	PostTribble$/;"	c
+PostTribble	tribclient/tribclient_impl.go	/^func (tc *tribClient) PostTribble(userID, contents string) (tribrpc.Status, error) {$/;"	f
+PostTribble	tribserver/tribserver_impl.go	/^func (ts *tribServer) PostTribble(args *tribrpc.PostTribbleArgs, reply *tribrpc.PostTribbleReply) (e error) {$/;"	f
+PostTribbleArgs	rpc/tribrpc/proto.go	/^type PostTribbleArgs struct {$/;"	t
+PostTribbleReply	rpc/tribrpc/proto.go	/^type PostTribbleReply struct {$/;"	t
+ProxyCounter	tests/proxycounter/proxycounter.go	/^type ProxyCounter interface {$/;"	t
+Put	libstore/libstore_impl.go	/^func (ls *libstore) Put(key, value string) (e error) {$/;"	f
+Put	storageserver/storageserver_impl.go	/^func (ss *storageServer) Put(args *storagerpc.PutArgs, reply *storagerpc.PutReply) error {$/;"	f
+Put	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) Put(args *storagerpc.PutArgs, reply *storagerpc.PutReply) error {$/;"	f
+Put	tests/storagetest/storagetest.go	/^func (st *storageTester) Put(key, value string) (*storagerpc.PutReply, error) {$/;"	f
+PutArgs	rpc/storagerpc/proto.go	/^type PutArgs struct {$/;"	t
+PutReply	rpc/storagerpc/proto.go	/^type PutReply struct {$/;"	t
+QueryCacheSeconds	rpc/storagerpc/proto.go	/^	QueryCacheSeconds = 10 \/\/ Time period used for tracking queries\/determining whether to request leases.$/;"	c
+QueryCacheThresh	rpc/storagerpc/proto.go	/^	QueryCacheThresh  = 3  \/\/ If QueryCacheThresh queries in last QueryCacheSeconds, then request a lease.$/;"	c
+RegisterArgs	rpc/storagerpc/proto.go	/^type RegisterArgs struct {$/;"	t
+RegisterReply	rpc/storagerpc/proto.go	/^type RegisterReply struct {$/;"	t
+RegisterServer	storageserver/storageserver_impl.go	/^func (ss *storageServer) RegisterServer(args *storagerpc.RegisterArgs, reply *storagerpc.RegisterReply) error {$/;"	f
+RegisterServer	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) RegisterServer(args *storagerpc.RegisterArgs, reply *storagerpc.RegisterReply) error {$/;"	f
+RegisterServer	tests/storagetest/storagetest.go	/^func (st *storageTester) RegisterServer() (*storagerpc.RegisterReply, error) {$/;"	f
+RemoteLeaseCallbacks	rpc/librpc/rpc.go	/^type RemoteLeaseCallbacks interface {$/;"	t
+RemoteStorageServer	rpc/storagerpc/rpc.go	/^type RemoteStorageServer interface {$/;"	t
+RemoteTribServer	rpc/tribrpc/rpc.go	/^type RemoteTribServer interface {$/;"	t
+RemoveFromList	libstore/libstore_impl.go	/^func (ls *libstore) RemoveFromList(key, removeItem string) (e error) {$/;"	f
+RemoveFromList	storageserver/storageserver_impl.go	/^func (ss *storageServer) RemoveFromList(args *storagerpc.PutArgs, reply *storagerpc.PutReply) error {$/;"	f
+RemoveFromList	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) RemoveFromList(args *storagerpc.PutArgs, reply *storagerpc.PutReply) error {$/;"	f
+RemoveFromList	tests/storagetest/storagetest.go	/^func (st *storageTester) RemoveFromList(key, removeitem string) (*storagerpc.PutReply, error) {$/;"	f
+RemoveSubscription	tests/stresstest/stresstest.go	/^	RemoveSubscription$/;"	c
+RemoveSubscription	tribclient/tribclient_impl.go	/^func (tc *tribClient) RemoveSubscription(userID, targetUserID string) (tribrpc.Status, error) {$/;"	f
+RemoveSubscription	tribserver/tribserver_impl.go	/^func (ts *tribServer) RemoveSubscription(args *tribrpc.SubscriptionArgs, reply *tribrpc.SubscriptionReply) (e error) {$/;"	f
+Reset	tests/proxycounter/proxycounter.go	/^func (pc *proxyCounter) Reset() {$/;"	f
+ResetDelay	tests/storagetest/storagetest.go	/^func (st *storageTester) ResetDelay() {$/;"	f
+RevokeLease	libstore/libstore_impl.go	/^func (ls *libstore) RevokeLease(args *storagerpc.RevokeLeaseArgs, reply *storagerpc.RevokeLeaseReply) (e error) {$/;"	f
+RevokeLease	tests/storagetest/storagetest.go	/^func (st *storageTester) RevokeLease(args *storagerpc.RevokeLeaseArgs, reply *storagerpc.RevokeLeaseReply) error {$/;"	f
+RevokeLeaseArgs	rpc/storagerpc/proto.go	/^type RevokeLeaseArgs struct {$/;"	t
+RevokeLeaseReply	rpc/storagerpc/proto.go	/^type RevokeLeaseReply struct {$/;"	t
+SSAppendList	events/events.go	/^type SSAppendList struct {$/;"	t
+SSGet	events/events.go	/^type SSGet struct {$/;"	t
+SSGetList	events/events.go	/^type SSGetList struct {$/;"	t
+SSGetServers	events/events.go	/^type SSGetServers struct {$/;"	t
+SSListRevokeReply	events/events.go	/^type SSListRevokeReply struct {$/;"	t
+SSPut	events/events.go	/^type SSPut struct {$/;"	t
+SSPutRevokeReply	events/events.go	/^type SSPutRevokeReply struct {$/;"	t
+SSRegisterServer	events/events.go	/^type SSRegisterServer struct {$/;"	t
+SSRemoveList	events/events.go	/^type SSRemoveList struct {$/;"	t
+SetDelay	tests/storagetest/storagetest.go	/^func (st *storageTester) SetDelay(f float32) {$/;"	f
+Status	rpc/storagerpc/proto.go	/^type Status int$/;"	t
+Status	rpc/tribrpc/proto.go	/^type Status int$/;"	t
+StorageServer	rpc/storagerpc/rpc.go	/^type StorageServer struct {$/;"	t
+StorageServer	storageserver/storageserver_api.go	/^type StorageServer interface {$/;"	t
+StoreHash	libstore/libstore_api.go	/^func StoreHash(key string) uint32 {$/;"	f
+String	tribserver/tribserver_impl.go	/^func (t tribbleId) String() string {$/;"	f
+SubscriptionArgs	rpc/tribrpc/proto.go	/^type SubscriptionArgs struct {$/;"	t
+SubscriptionReply	rpc/tribrpc/proto.go	/^type SubscriptionReply struct {$/;"	t
+Swap	storageserver/storageserver_impl.go	/^func (list nodeList) Swap(i, j int)      { list[i], list[j] = list[j], list[i] }$/;"	f
+TSAddSub	events/events.go	/^type TSAddSub struct {$/;"	t
+TSCreateUser	events/events.go	/^type TSCreateUser struct {$/;"	t
+TSGetSub	events/events.go	/^type TSGetSub struct {$/;"	t
+TSGetTrib	events/events.go	/^type TSGetTrib struct {$/;"	t
+TSGetTribBySub	events/events.go	/^type TSGetTribBySub struct {$/;"	t
+TSPostTrib	events/events.go	/^type TSPostTrib struct {$/;"	t
+TSRemoveSub	events/events.go	/^type TSRemoveSub struct {$/;"	t
+TribClient	tribclient/tribclient_api.go	/^type TribClient interface {$/;"	t
+TribServer	rpc/tribrpc/rpc.go	/^type TribServer struct {$/;"	t
+TribServer	tribserver/tribserver_api.go	/^type TribServer interface {$/;"	t
+Tribble	rpc/tribrpc/proto.go	/^type Tribble struct {$/;"	t
+Wrap	rpc/librpc/rpc.go	/^func Wrap(l RemoteLeaseCallbacks) RemoteLeaseCallbacks {$/;"	f
+Wrap	rpc/storagerpc/rpc.go	/^func Wrap(s RemoteStorageServer) RemoteStorageServer {$/;"	f
+Wrap	rpc/tribrpc/rpc.go	/^func Wrap(t RemoteTribServer) RemoteTribServer {$/;"	f
+WrongServer	rpc/storagerpc/proto.go	/^	WrongServer                    \/\/ The specified key does not fall in the server's hash range.$/;"	c
+addSubscription	tests/tribtest/tribtest.go	/^func addSubscription(user, target string) (error, tribrpc.Status) {$/;"	f
+as	tests/stresstest/stresstest.go	/^	gs, as, rs, gt, pt, gtbs int$/;"	v
+cacheKey	tests/storagetest/storagetest.go	/^func cacheKey(key string) bool {$/;"	f
+cacheKeyList	tests/storagetest/storagetest.go	/^func cacheKeyList(key string) bool {$/;"	f
+checkError	tests/libtest/libtest.go	/^func checkError(err error, expectError bool) bool {$/;"	f
+checkError	tests/storagetest/storagetest.go	/^func checkError(err error, expectError bool) bool {$/;"	f
+checkErrorStatus	tests/storagetest/storagetest.go	/^func checkErrorStatus(err error, status, expectedStatus storagerpc.Status) bool {$/;"	f
+checkErrorStatus	tests/tribtest/tribtest.go	/^func checkErrorStatus(err error, status, expectedStatus tribrpc.Status) bool {$/;"	f
+checkLimits	tests/libtest/libtest.go	/^func checkLimits(rpcCountLimit, byteCountLimit uint32) bool {$/;"	f
+checkLimits	tests/tribtest/tribtest.go	/^func checkLimits(rpcCountLimit, byteCountLimit uint32) bool {$/;"	f
+checkList	tests/storagetest/storagetest.go	/^func checkList(list []string, expectedList []string) bool {$/;"	f
+checkSubscriptions	tests/tribtest/tribtest.go	/^func checkSubscriptions(subs, expectedSubs []string) bool {$/;"	f
+checkTribbles	tests/tribtest/tribtest.go	/^func checkTribbles(tribbles, expectedTribbles []tribrpc.Tribble) bool {$/;"	f
+cleanupLibstore	tests/libtest/libtest.go	/^func cleanupLibstore(l net.Listener) {$/;"	f
+cleanupTribServer	tests/tribtest/tribtest.go	/^func cleanupTribServer(l net.Listener) {$/;"	f
+clientId	tests/stresstest/stresstest.go	/^	clientId = flag.String("clientId", "0", "client id for user")$/;"	v
+cmdInfo	runners/crunner/crunner.go	/^type cmdInfo struct {$/;"	t
+cmdInfo	runners/lrunner/lrunner.go	/^type cmdInfo struct {$/;"	t
+cmdList	runners/lrunner/lrunner.go	/^var cmdList = map[string]int{$/;"	v
+createUser	tests/tribtest/tribtest.go	/^func createUser(user string) (error, tribrpc.Status) {$/;"	f
+debug	tests/stresstest/stresstest.go	/^	debug bool$/;"	v
+defaultMasterPort	runners/srunner/srunner.go	/^const defaultMasterPort = 9009$/;"	c
+delayedRevoke	tests/storagetest/storagetest.go	/^func delayedRevoke(key string, f func() bool) bool {$/;"	f
+delayedRevokeList	tests/storagetest/storagetest.go	/^func delayedRevokeList(key string, f func() bool) bool {$/;"	f
+doAppendList	storageserver/storageserver_impl.go	/^func (ss *storageServer) doAppendList(request *events.SSAppendList) {$/;"	f
+doGet	storageserver/storageserver_impl.go	/^func (ss *storageServer) doGet(request *events.SSGet) {$/;"	f
+doGetList	storageserver/storageserver_impl.go	/^func (ss *storageServer) doGetList(request *events.SSGetList) {$/;"	f
+doGetServers	storageserver/storageserver_impl.go	/^func (ss *storageServer) doGetServers(request *events.SSGetServers) {$/;"	f
+doPut	storageserver/storageserver_impl.go	/^func (ss *storageServer) doPut(request *events.SSPut) {$/;"	f
+doRegisterServer	storageserver/storageserver_impl.go	/^func (ss *storageServer) doRegisterServer(request *events.SSRegisterServer) {$/;"	f
+doRemoveList	storageserver/storageserver_impl.go	/^func (ss *storageServer) doRemoveList(request *events.SSRemoveList) {$/;"	f
+doSub	tribclient/tribclient_impl.go	/^func (tc *tribClient) doSub(funcName, userID, targetUserID string) (tribrpc.Status, error) {$/;"	f
+doTrib	tribclient/tribclient_impl.go	/^func (tc *tribClient) doTrib(funcName, userID string) ([]tribrpc.Tribble, tribrpc.Status, error) {$/;"	f
+events	events/events.go	/^package events$/;"	p
+failCount	tests/libtest/libtest.go	/^	failCount  int$/;"	v
+failCount	tests/storagetest/storagetest.go	/^	failCount int$/;"	v
+failCount	tests/tribtest/tribtest.go	/^	failCount int$/;"	v
+forceCacheGet	tests/libtest/libtest.go	/^func forceCacheGet(key string, value string) {$/;"	f
+forceCacheGetList	tests/libtest/libtest.go	/^func forceCacheGetList(key string, value string) {$/;"	f
+forceLease	runners/lrunner/lrunner.go	/^	forceLease    = flag.Bool("fl", false, "Create libstore in 'Always' mode (default is 'Normal')")$/;"	v
+gc	storageserver/storageserver_impl.go	/^func (ss *storageServer) gc() {$/;"	f
+getSubscription	tests/tribtest/tribtest.go	/^func getSubscription(user string) (error, tribrpc.Status, []string) {$/;"	f
+getTribbles	tests/tribtest/tribtest.go	/^func getTribbles(user string) (error, tribrpc.Status, []tribrpc.Tribble) {$/;"	f
+getTribblesBySubscription	tests/tribtest/tribtest.go	/^func getTribblesBySubscription(user string) (error, tribrpc.Status, []tribrpc.Tribble) {$/;"	f
+gs	tests/stresstest/stresstest.go	/^	gs, as, rs, gt, pt, gtbs int$/;"	v
+gt	tests/stresstest/stresstest.go	/^	gs, as, rs, gt, pt, gtbs int$/;"	v
+gtbs	tests/stresstest/stresstest.go	/^	gs, as, rs, gt, pt, gtbs int$/;"	v
+handleLeases	runners/lrunner/lrunner.go	/^	handleLeases  = flag.Bool("l", false, "run persistently, requesting leases, and reporting lease revocation requests")$/;"	v
+init	runners/crunner/crunner.go	/^func init() {$/;"	f
+init	runners/lrunner/lrunner.go	/^func init() {$/;"	f
+init	runners/srunner/srunner.go	/^func init() {$/;"	f
+init	runners/trunner/trunner.go	/^func init() {$/;"	f
+init	tests/proxycounter/proxycounter.go	/^func init() {$/;"	f
+initLibstore	tests/libtest/libtest.go	/^func initLibstore(storage, server, myhostport string, alwaysLease bool) (net.Listener, error) {$/;"	f
+initStorageTester	tests/storagetest/storagetest.go	/^func initStorageTester(server, myhostport string) (*storageTester, error) {$/;"	f
+initTribServer	tests/tribtest/tribtest.go	/^func initTribServer(masterServerHostPort string, tribServerPort int) error {$/;"	f
+isTimeOK	tests/storagetest/storagetest.go	/^func isTimeOK(d time.Duration) bool {$/;"	f
+librpc	rpc/librpc/rpc.go	/^package librpc$/;"	p
+libstore	libstore/libstore_api.go	/^package libstore$/;"	p
+libstore	libstore/libstore_impl.go	/^package libstore$/;"	p
+libstore	libstore/libstore_impl.go	/^type libstore struct {$/;"	t
+ls	tests/libtest/libtest.go	/^	ls         libstore.Libstore$/;"	v
+main	runners/crunner/crunner.go	/^func main() {$/;"	f
+main	runners/crunner/crunner.go	/^package main$/;"	p
+main	runners/lrunner/lrunner.go	/^func main() {$/;"	f
+main	runners/lrunner/lrunner.go	/^package main$/;"	p
+main	runners/srunner/srunner.go	/^func main() {$/;"	f
+main	runners/srunner/srunner.go	/^package main$/;"	p
+main	runners/trunner/trunner.go	/^func main() {$/;"	f
+main	runners/trunner/trunner.go	/^package main$/;"	p
+main	tests/libtest/libtest.go	/^func main() {$/;"	f
+main	tests/libtest/libtest.go	/^package main$/;"	p
+main	tests/storagetest/storagetest.go	/^func main() {$/;"	f
+main	tests/storagetest/storagetest.go	/^package main$/;"	p
+main	tests/stresstest/stresstest.go	/^func main() {$/;"	f
+main	tests/stresstest/stresstest.go	/^package main$/;"	p
+main	tests/tribtest/tribtest.go	/^func main() {$/;"	f
+main	tests/tribtest/tribtest.go	/^package main$/;"	p
+masterHandler	storageserver/storageserver_impl.go	/^func (ss *storageServer) masterHandler() {$/;"	f
+masterHostPort	runners/srunner/srunner.go	/^	masterHostPort = flag.String("master", "", "master storage server host port (if non-empty then this storage server is a slave)")$/;"	v
+myID	tests/storagetest/storagetest.go	/^	myID      = flag.Int("id", 1, "(jtest only) my id")$/;"	v
+nodeID	runners/srunner/srunner.go	/^	nodeID         = flag.Uint("id", 0, "a 32-bit unsigned node ID to use for consistent hashing")$/;"	v
+nodeList	storageserver/storageserver_impl.go	/^type nodeList []storagerpc.Node$/;"	t
+numCmds	tests/stresstest/stresstest.go	/^	numCmds  = flag.Int("numCmds", 1000, "number of random commands to execute")$/;"	v
+numNodes	runners/srunner/srunner.go	/^	numNodes       = flag.Int("N", 1, "the number of nodes in the ring (including the master)")$/;"	v
+numServer	tests/storagetest/storagetest.go	/^	numServer = flag.Int("N", 1, "(jtest only) total # of storage servers")$/;"	v
+numTimes	runners/lrunner/lrunner.go	/^	numTimes      = flag.Int("n", 1, "number of times to execute the command")$/;"	v
+passCount	tests/libtest/libtest.go	/^	passCount  int$/;"	v
+passCount	tests/storagetest/storagetest.go	/^	passCount int$/;"	v
+passCount	tests/tribtest/tribtest.go	/^	passCount int$/;"	v
+pc	tests/libtest/libtest.go	/^	pc         proxycounter.ProxyCounter$/;"	v
+pc	tests/tribtest/tribtest.go	/^	pc        proxycounter.ProxyCounter$/;"	v
+port	runners/crunner/crunner.go	/^var port = flag.Int("port", 9010, "TribServer port number")$/;"	v
+port	runners/lrunner/lrunner.go	/^	port          = flag.Int("port", 9009, "master storage server port number")$/;"	v
+port	runners/srunner/srunner.go	/^	port           = flag.Int("port", defaultMasterPort, "port number to listen on")$/;"	v
+port	runners/trunner/trunner.go	/^var port = flag.Int("port", 9010, "port number to listen on")$/;"	v
+port	tests/tribtest/tribtest.go	/^	port      = flag.Int("port", 9010, "TribServer port number")$/;"	v
+portnum	tests/libtest/libtest.go	/^	portnum   = flag.Int("port", 9010, "port to listen on")$/;"	v
+portnum	tests/storagetest/storagetest.go	/^	portnum   = flag.Int("port", 9019, "port # to listen on")$/;"	v
+portnum	tests/stresstest/stresstest.go	/^	portnum  = flag.Int("port", 9010, "server port # to connect to")$/;"	v
+postTribble	tests/tribtest/tribtest.go	/^func postTribble(user, contents string) (error, tribrpc.Status) {$/;"	f
+printStatus	runners/crunner/crunner.go	/^func printStatus(cmdName string, status tribrpc.Status, err error) {$/;"	f
+printTribble	runners/crunner/crunner.go	/^func printTribble(t tribrpc.Tribble) {$/;"	f
+printTribbles	runners/crunner/crunner.go	/^func printTribbles(tribbles []tribrpc.Tribble) {$/;"	f
+proxyCounter	tests/proxycounter/proxycounter.go	/^type proxyCounter struct {$/;"	t
+proxycounter	tests/proxycounter/proxycounter.go	/^package proxycounter$/;"	p
+pt	tests/stresstest/stresstest.go	/^	gs, as, rs, gt, pt, gtbs int$/;"	v
+removeSubscription	tests/tribtest/tribtest.go	/^func removeSubscription(user, target string) (error, tribrpc.Status) {$/;"	f
+revokeConn	tests/libtest/libtest.go	/^	revokeConn *rpc.Client$/;"	v
+revokeLease	tests/libtest/libtest.go	/^func revokeLease(key string) (error, storagerpc.Status) {$/;"	f
+rs	tests/stresstest/stresstest.go	/^	gs, as, rs, gt, pt, gtbs int$/;"	v
+seed	tests/stresstest/stresstest.go	/^	seed     = flag.Int64("seed", 0, "seed for random number generator used to execute commands")$/;"	v
+serverAddress	runners/lrunner/lrunner.go	/^	serverAddress = flag.String("host", "localhost", "master storage server host (our tests will always use localhost)")$/;"	v
+st	tests/storagetest/storagetest.go	/^	st        *storageTester$/;"	v
+statusMap	tests/storagetest/storagetest.go	/^var statusMap = map[storagerpc.Status]string{$/;"	v
+statusMap	tests/stresstest/stresstest.go	/^var statusMap = map[tribrpc.Status]string{$/;"	v
+statusMap	tests/tribtest/tribtest.go	/^var statusMap = map[tribrpc.Status]string{$/;"	v
+storageServer	storageserver/storageserver_impl.go	/^type storageServer struct {$/;"	t
+storageTester	tests/storagetest/storagetest.go	/^type storageTester struct {$/;"	t
+storagerpc	rpc/storagerpc/proto.go	/^package storagerpc$/;"	p
+storagerpc	rpc/storagerpc/rpc.go	/^package storagerpc$/;"	p
+storageserver	storageserver/storageserver_api.go	/^package storageserver$/;"	p
+storageserver	storageserver/storageserver_impl.go	/^package storageserver$/;"	p
+testAddSubscriptionDuplicate	tests/tribtest/tribtest.go	/^func testAddSubscriptionDuplicate() {$/;"	f
+testAddSubscriptionInvalidTargetUser	tests/tribtest/tribtest.go	/^func testAddSubscriptionInvalidTargetUser() {$/;"	f
+testAddSubscriptionInvalidUser	tests/tribtest/tribtest.go	/^func testAddSubscriptionInvalidUser() {$/;"	f
+testAddSubscriptionValid	tests/tribtest/tribtest.go	/^func testAddSubscriptionValid() {$/;"	f
+testAlwaysLeases	tests/libtest/libtest.go	/^func testAlwaysLeases() {$/;"	f
+testAppendGetRemoveList	tests/storagetest/storagetest.go	/^func testAppendGetRemoveList() {$/;"	f
+testAppendToListError	tests/libtest/libtest.go	/^func testAppendToListError() {$/;"	f
+testAppendToListErrorStatus	tests/libtest/libtest.go	/^func testAppendToListErrorStatus() {$/;"	f
+testAppendToListValid	tests/libtest/libtest.go	/^func testAppendToListValid() {$/;"	f
+testCacheGetCorrect	tests/libtest/libtest.go	/^func testCacheGetCorrect() {$/;"	f
+testCacheGetLeaseNotGranted	tests/libtest/libtest.go	/^func testCacheGetLeaseNotGranted() {$/;"	f
+testCacheGetLeaseNotGranted2	tests/libtest/libtest.go	/^func testCacheGetLeaseNotGranted2() {$/;"	f
+testCacheGetLeaseTimeout	tests/libtest/libtest.go	/^func testCacheGetLeaseTimeout() {$/;"	f
+testCacheGetLimit	tests/libtest/libtest.go	/^func testCacheGetLimit() {$/;"	f
+testCacheGetLimit2	tests/libtest/libtest.go	/^func testCacheGetLimit2() {$/;"	f
+testCacheGetListCorrect	tests/libtest/libtest.go	/^func testCacheGetListCorrect() {$/;"	f
+testCacheGetListLeaseNotGranted	tests/libtest/libtest.go	/^func testCacheGetListLeaseNotGranted() {$/;"	f
+testCacheGetListLeaseNotGranted2	tests/libtest/libtest.go	/^func testCacheGetListLeaseNotGranted2() {$/;"	f
+testCacheGetListLeaseTimeout	tests/libtest/libtest.go	/^func testCacheGetListLeaseTimeout() {$/;"	f
+testCacheGetListLimit	tests/libtest/libtest.go	/^func testCacheGetListLimit() {$/;"	f
+testCacheGetListLimit2	tests/libtest/libtest.go	/^func testCacheGetListLimit2() {$/;"	f
+testCacheGetListMemoryLeak	tests/libtest/libtest.go	/^func testCacheGetListMemoryLeak() {$/;"	f
+testCacheGetMemoryLeak	tests/libtest/libtest.go	/^func testCacheGetMemoryLeak() {$/;"	f
+testCreateUserDuplicate	tests/tribtest/tribtest.go	/^func testCreateUserDuplicate() {$/;"	f
+testCreateUserValid	tests/tribtest/tribtest.go	/^func testCreateUserValid() {$/;"	f
+testDelayedRevokeListWithLeaseRequest1	tests/storagetest/storagetest.go	/^func testDelayedRevokeListWithLeaseRequest1() {$/;"	f
+testDelayedRevokeListWithLeaseRequest2	tests/storagetest/storagetest.go	/^func testDelayedRevokeListWithLeaseRequest2() {$/;"	f
+testDelayedRevokeListWithUpdate1	tests/storagetest/storagetest.go	/^func testDelayedRevokeListWithUpdate1() {$/;"	f
+testDelayedRevokeListWithUpdate2	tests/storagetest/storagetest.go	/^func testDelayedRevokeListWithUpdate2() {$/;"	f
+testDelayedRevokeListWithUpdate3	tests/storagetest/storagetest.go	/^func testDelayedRevokeListWithUpdate3() {$/;"	f
+testDelayedRevokeListWithoutBlocking	tests/storagetest/storagetest.go	/^func testDelayedRevokeListWithoutBlocking() {$/;"	f
+testDelayedRevokeWithLeaseRequest1	tests/storagetest/storagetest.go	/^func testDelayedRevokeWithLeaseRequest1() {$/;"	f
+testDelayedRevokeWithLeaseRequest2	tests/storagetest/storagetest.go	/^func testDelayedRevokeWithLeaseRequest2() {$/;"	f
+testDelayedRevokeWithUpdate1	tests/storagetest/storagetest.go	/^func testDelayedRevokeWithUpdate1() {$/;"	f
+testDelayedRevokeWithUpdate2	tests/storagetest/storagetest.go	/^func testDelayedRevokeWithUpdate2() {$/;"	f
+testDelayedRevokeWithUpdate3	tests/storagetest/storagetest.go	/^func testDelayedRevokeWithUpdate3() {$/;"	f
+testDelayedRevokeWithoutBlocking	tests/storagetest/storagetest.go	/^func testDelayedRevokeWithoutBlocking() {$/;"	f
+testFunc	tests/libtest/libtest.go	/^type testFunc struct {$/;"	t
+testFunc	tests/storagetest/storagetest.go	/^type testFunc struct {$/;"	t
+testFunc	tests/tribtest/tribtest.go	/^type testFunc struct {$/;"	t
+testGetError	tests/libtest/libtest.go	/^func testGetError() {$/;"	f
+testGetErrorStatus	tests/libtest/libtest.go	/^func testGetErrorStatus() {$/;"	f
+testGetListError	tests/libtest/libtest.go	/^func testGetListError() {$/;"	f
+testGetListErrorStatus	tests/libtest/libtest.go	/^func testGetListErrorStatus() {$/;"	f
+testGetListValid	tests/libtest/libtest.go	/^func testGetListValid() {$/;"	f
+testGetSubscriptionInvalidUser	tests/tribtest/tribtest.go	/^func testGetSubscriptionInvalidUser() {$/;"	f
+testGetSubscriptionValid	tests/tribtest/tribtest.go	/^func testGetSubscriptionValid() {$/;"	f
+testGetTribblesBySubscriptionFewTribbles	tests/tribtest/tribtest.go	/^func testGetTribblesBySubscriptionFewTribbles() {$/;"	f
+testGetTribblesBySubscriptionInvalidUser	tests/tribtest/tribtest.go	/^func testGetTribblesBySubscriptionInvalidUser() {$/;"	f
+testGetTribblesBySubscriptionManyTribbles	tests/tribtest/tribtest.go	/^func testGetTribblesBySubscriptionManyTribbles() {$/;"	f
+testGetTribblesBySubscriptionManyTribbles2	tests/tribtest/tribtest.go	/^func testGetTribblesBySubscriptionManyTribbles2() {$/;"	f
+testGetTribblesBySubscriptionManyTribbles3	tests/tribtest/tribtest.go	/^func testGetTribblesBySubscriptionManyTribbles3() {$/;"	f
+testGetTribblesBySubscriptionNoSubscriptions	tests/tribtest/tribtest.go	/^func testGetTribblesBySubscriptionNoSubscriptions() {$/;"	f
+testGetTribblesBySubscriptionZeroTribbles	tests/tribtest/tribtest.go	/^func testGetTribblesBySubscriptionZeroTribbles() {$/;"	f
+testGetTribblesFewTribbles	tests/tribtest/tribtest.go	/^func testGetTribblesFewTribbles() {$/;"	f
+testGetTribblesInvalidUser	tests/tribtest/tribtest.go	/^func testGetTribblesInvalidUser() {$/;"	f
+testGetTribblesManyTribbles	tests/tribtest/tribtest.go	/^func testGetTribblesManyTribbles() {$/;"	f
+testGetTribblesZeroTribbles	tests/tribtest/tribtest.go	/^func testGetTribblesZeroTribbles() {$/;"	f
+testGetValid	tests/libtest/libtest.go	/^func testGetValid() {$/;"	f
+testInitStorageServers	tests/storagetest/storagetest.go	/^func testInitStorageServers() {$/;"	f
+testNoLeases	tests/libtest/libtest.go	/^func testNoLeases() {$/;"	f
+testNonexistentServer	tests/libtest/libtest.go	/^func testNonexistentServer() {$/;"	f
+testPostTribbleInvalidUser	tests/tribtest/tribtest.go	/^func testPostTribbleInvalidUser() {$/;"	f
+testPostTribbleValid	tests/tribtest/tribtest.go	/^func testPostTribbleValid() {$/;"	f
+testPutError	tests/libtest/libtest.go	/^func testPutError() {$/;"	f
+testPutErrorStatus	tests/libtest/libtest.go	/^func testPutErrorStatus() {$/;"	f
+testPutGet	tests/storagetest/storagetest.go	/^func testPutGet() {$/;"	f
+testPutValid	tests/libtest/libtest.go	/^func testPutValid() {$/;"	f
+testRegex	tests/libtest/libtest.go	/^	testRegex = flag.String("t", "", "test to run")$/;"	v
+testRegex	tests/storagetest/storagetest.go	/^	testRegex = flag.String("t", "", "test to run")$/;"	v
+testRegex	tests/tribtest/tribtest.go	/^	testRegex = flag.String("t", "", "test to run")$/;"	v
+testRemoveFromListError	tests/libtest/libtest.go	/^func testRemoveFromListError() {$/;"	f
+testRemoveFromListErrorStatus	tests/libtest/libtest.go	/^func testRemoveFromListErrorStatus() {$/;"	f
+testRemoveFromListValid	tests/libtest/libtest.go	/^func testRemoveFromListValid() {$/;"	f
+testRemoveSubscriptionInvalidUser	tests/tribtest/tribtest.go	/^func testRemoveSubscriptionInvalidUser() {$/;"	f
+testRemoveSubscriptionMissingTarget	tests/tribtest/tribtest.go	/^func testRemoveSubscriptionMissingTarget() {$/;"	f
+testRemoveSubscriptionValid	tests/tribtest/tribtest.go	/^func testRemoveSubscriptionValid() {$/;"	f
+testRevokeGetListNonexistent	tests/libtest/libtest.go	/^func testRevokeGetListNonexistent() {$/;"	f
+testRevokeGetListUpdate	tests/libtest/libtest.go	/^func testRevokeGetListUpdate() {$/;"	f
+testRevokeGetListValid	tests/libtest/libtest.go	/^func testRevokeGetListValid() {$/;"	f
+testRevokeGetNonexistent	tests/libtest/libtest.go	/^func testRevokeGetNonexistent() {$/;"	f
+testRevokeGetUpdate	tests/libtest/libtest.go	/^func testRevokeGetUpdate() {$/;"	f
+testRevokeGetValid	tests/libtest/libtest.go	/^func testRevokeGetValid() {$/;"	f
+testType	tests/storagetest/storagetest.go	/^	testType  = flag.Int("type", 1, "type of test, 1: jtest, 2: btest")$/;"	v
+testUpdateAfterLeaseExpire	tests/storagetest/storagetest.go	/^func testUpdateAfterLeaseExpire() {$/;"	f
+testUpdateBeforeLeaseExpire	tests/storagetest/storagetest.go	/^func testUpdateBeforeLeaseExpire() {$/;"	f
+testUpdateListAfterLeaseExpire	tests/storagetest/storagetest.go	/^func testUpdateListAfterLeaseExpire() {$/;"	f
+testUpdateListBeforeLeaseExpire	tests/storagetest/storagetest.go	/^func testUpdateListBeforeLeaseExpire() {$/;"	f
+testUpdateListWithoutLease	tests/storagetest/storagetest.go	/^func testUpdateListWithoutLease() {$/;"	f
+testUpdateWithoutLease	tests/storagetest/storagetest.go	/^func testUpdateWithoutLease() {$/;"	f
+tribClient	tribclient/tribclient_impl.go	/^type tribClient struct {$/;"	t
+tribServer	tribserver/tribserver_impl.go	/^type tribServer struct {$/;"	t
+tribStatusToString	runners/crunner/crunner.go	/^func tribStatusToString(status tribrpc.Status) (s string) {$/;"	f
+tribbleId	tribserver/tribserver_impl.go	/^type tribbleId struct {$/;"	t
+tribclient	tribclient/tribclient_api.go	/^package tribclient$/;"	p
+tribclient	tribclient/tribclient_impl.go	/^package tribclient$/;"	p
+tribrpc	rpc/tribrpc/proto.go	/^package tribrpc$/;"	p
+tribrpc	rpc/tribrpc/rpc.go	/^package tribrpc$/;"	p
+tribserver	tribserver/tribserver_api.go	/^package tribserver$/;"	p
+tribserver	tribserver/tribserver_impl.go	/^package tribserver$/;"	p
+ts	tests/tribtest/tribtest.go	/^	ts        tribserver.TribServer$/;"	v
+validateSubscriptions	tests/stresstest/stresstest.go	/^func validateSubscriptions(subscriptions *[]string) bool {$/;"	f
+validateTribbles	tests/stresstest/stresstest.go	/^func validateTribbles(tribbles *[]tribrpc.Tribble, numTargets int) bool {$/;"	f
