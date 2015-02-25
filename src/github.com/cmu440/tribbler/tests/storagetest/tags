@@ -1,0 +1,113 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AppendToList	storagetest.go	/^func (st *storageTester) AppendToList(key, newitem string) (*storagerpc.PutReply, error) {$/;"	f
+Get	storagetest.go	/^func (st *storageTester) Get(key string, wantlease bool) (*storagerpc.GetReply, error) {$/;"	f
+GetList	storagetest.go	/^func (st *storageTester) GetList(key string, wantlease bool) (*storagerpc.GetListReply, error) {$/;"	f
+GetServers	storagetest.go	/^func (st *storageTester) GetServers() (*storagerpc.GetServersReply, error) {$/;"	f
+LOGE	storagetest.go	/^var LOGE = log.New(os.Stderr, "", log.Lshortfile|log.Lmicroseconds)$/;"	v
+Put	storagetest.go	/^func (st *storageTester) Put(key, value string) (*storagerpc.PutReply, error) {$/;"	f
+RegisterServer	storagetest.go	/^func (st *storageTester) RegisterServer() (*storagerpc.RegisterReply, error) {$/;"	f
+RemoveFromList	storagetest.go	/^func (st *storageTester) RemoveFromList(key, removeitem string) (*storagerpc.PutReply, error) {$/;"	f
+ResetDelay	storagetest.go	/^func (st *storageTester) ResetDelay() {$/;"	f
+RevokeLease	storagetest.go	/^func (st *storageTester) RevokeLease(args *storagerpc.RevokeLeaseArgs, reply *storagerpc.RevokeLeaseReply) error {$/;"	f
+SetDelay	storagetest.go	/^func (st *storageTester) SetDelay(f float32) {$/;"	f
+cacheKey	storagetest.go	/^func cacheKey(key string) bool {$/;"	f
+cacheKeyList	storagetest.go	/^func cacheKeyList(key string) bool {$/;"	f
+checkError	storagetest.go	/^func checkError(err error, expectError bool) bool {$/;"	f
+checkErrorStatus	storagetest.go	/^func checkErrorStatus(err error, status, expectedStatus storagerpc.Status) bool {$/;"	f
+checkList	storagetest.go	/^func checkList(list []string, expectedList []string) bool {$/;"	f
+delayedRevoke	storagetest.go	/^func delayedRevoke(key string, f func() bool) bool {$/;"	f
+delayedRevokeList	storagetest.go	/^func delayedRevokeList(key string, f func() bool) bool {$/;"	f
+failCount	storagetest.go	/^	failCount int$/;"	v
+initStorageTester	storagetest.go	/^func initStorageTester(server, myhostport string) (*storageTester, error) {$/;"	f
+isTimeOK	storagetest.go	/^func isTimeOK(d time.Duration) bool {$/;"	f
+main	storagetest.go	/^func main() {$/;"	f
+main	storagetest.go	/^package main$/;"	p
+main.AppendToList	storagetest.go	/^func (st *storageTester) AppendToList(key, newitem string) (*storagerpc.PutReply, error) {$/;"	f
+main.Get	storagetest.go	/^func (st *storageTester) Get(key string, wantlease bool) (*storagerpc.GetReply, error) {$/;"	f
+main.GetList	storagetest.go	/^func (st *storageTester) GetList(key string, wantlease bool) (*storagerpc.GetListReply, error) {$/;"	f
+main.GetServers	storagetest.go	/^func (st *storageTester) GetServers() (*storagerpc.GetServersReply, error) {$/;"	f
+main.LOGE	storagetest.go	/^var LOGE = log.New(os.Stderr, "", log.Lshortfile|log.Lmicroseconds)$/;"	v
+main.Put	storagetest.go	/^func (st *storageTester) Put(key, value string) (*storagerpc.PutReply, error) {$/;"	f
+main.RegisterServer	storagetest.go	/^func (st *storageTester) RegisterServer() (*storagerpc.RegisterReply, error) {$/;"	f
+main.RemoveFromList	storagetest.go	/^func (st *storageTester) RemoveFromList(key, removeitem string) (*storagerpc.PutReply, error) {$/;"	f
+main.ResetDelay	storagetest.go	/^func (st *storageTester) ResetDelay() {$/;"	f
+main.RevokeLease	storagetest.go	/^func (st *storageTester) RevokeLease(args *storagerpc.RevokeLeaseArgs, reply *storagerpc.RevokeLeaseReply) error {$/;"	f
+main.SetDelay	storagetest.go	/^func (st *storageTester) SetDelay(f float32) {$/;"	f
+main.cacheKey	storagetest.go	/^func cacheKey(key string) bool {$/;"	f
+main.cacheKeyList	storagetest.go	/^func cacheKeyList(key string) bool {$/;"	f
+main.checkError	storagetest.go	/^func checkError(err error, expectError bool) bool {$/;"	f
+main.checkErrorStatus	storagetest.go	/^func checkErrorStatus(err error, status, expectedStatus storagerpc.Status) bool {$/;"	f
+main.checkList	storagetest.go	/^func checkList(list []string, expectedList []string) bool {$/;"	f
+main.delayedRevoke	storagetest.go	/^func delayedRevoke(key string, f func() bool) bool {$/;"	f
+main.delayedRevokeList	storagetest.go	/^func delayedRevokeList(key string, f func() bool) bool {$/;"	f
+main.failCount	storagetest.go	/^	failCount int$/;"	v
+main.initStorageTester	storagetest.go	/^func initStorageTester(server, myhostport string) (*storageTester, error) {$/;"	f
+main.isTimeOK	storagetest.go	/^func isTimeOK(d time.Duration) bool {$/;"	f
+main.main	storagetest.go	/^func main() {$/;"	f
+main.myID	storagetest.go	/^	myID      = flag.Int("id", 1, "(jtest only) my id")$/;"	v
+main.numServer	storagetest.go	/^	numServer = flag.Int("N", 1, "(jtest only) total # of storage servers")$/;"	v
+main.passCount	storagetest.go	/^	passCount int$/;"	v
+main.portnum	storagetest.go	/^	portnum   = flag.Int("port", 9019, "port # to listen on")$/;"	v
+main.st	storagetest.go	/^	st        *storageTester$/;"	v
+main.statusMap	storagetest.go	/^var statusMap = map[storagerpc.Status]string{$/;"	v
+main.storageTester	storagetest.go	/^type storageTester struct {$/;"	t
+main.testAppendGetRemoveList	storagetest.go	/^func testAppendGetRemoveList() {$/;"	f
+main.testDelayedRevokeListWithLeaseRequest1	storagetest.go	/^func testDelayedRevokeListWithLeaseRequest1() {$/;"	f
+main.testDelayedRevokeListWithLeaseRequest2	storagetest.go	/^func testDelayedRevokeListWithLeaseRequest2() {$/;"	f
+main.testDelayedRevokeListWithUpdate1	storagetest.go	/^func testDelayedRevokeListWithUpdate1() {$/;"	f
+main.testDelayedRevokeListWithUpdate2	storagetest.go	/^func testDelayedRevokeListWithUpdate2() {$/;"	f
+main.testDelayedRevokeListWithUpdate3	storagetest.go	/^func testDelayedRevokeListWithUpdate3() {$/;"	f
+main.testDelayedRevokeListWithoutBlocking	storagetest.go	/^func testDelayedRevokeListWithoutBlocking() {$/;"	f
+main.testDelayedRevokeWithLeaseRequest1	storagetest.go	/^func testDelayedRevokeWithLeaseRequest1() {$/;"	f
+main.testDelayedRevokeWithLeaseRequest2	storagetest.go	/^func testDelayedRevokeWithLeaseRequest2() {$/;"	f
+main.testDelayedRevokeWithUpdate1	storagetest.go	/^func testDelayedRevokeWithUpdate1() {$/;"	f
+main.testDelayedRevokeWithUpdate2	storagetest.go	/^func testDelayedRevokeWithUpdate2() {$/;"	f
+main.testDelayedRevokeWithUpdate3	storagetest.go	/^func testDelayedRevokeWithUpdate3() {$/;"	f
+main.testDelayedRevokeWithoutBlocking	storagetest.go	/^func testDelayedRevokeWithoutBlocking() {$/;"	f
+main.testFunc	storagetest.go	/^type testFunc struct {$/;"	t
+main.testInitStorageServers	storagetest.go	/^func testInitStorageServers() {$/;"	f
+main.testPutGet	storagetest.go	/^func testPutGet() {$/;"	f
+main.testRegex	storagetest.go	/^	testRegex = flag.String("t", "", "test to run")$/;"	v
+main.testType	storagetest.go	/^	testType  = flag.Int("type", 1, "type of test, 1: jtest, 2: btest")$/;"	v
+main.testUpdateAfterLeaseExpire	storagetest.go	/^func testUpdateAfterLeaseExpire() {$/;"	f
+main.testUpdateBeforeLeaseExpire	storagetest.go	/^func testUpdateBeforeLeaseExpire() {$/;"	f
+main.testUpdateListAfterLeaseExpire	storagetest.go	/^func testUpdateListAfterLeaseExpire() {$/;"	f
+main.testUpdateListBeforeLeaseExpire	storagetest.go	/^func testUpdateListBeforeLeaseExpire() {$/;"	f
+main.testUpdateListWithoutLease	storagetest.go	/^func testUpdateListWithoutLease() {$/;"	f
+main.testUpdateWithoutLease	storagetest.go	/^func testUpdateWithoutLease() {$/;"	f
+myID	storagetest.go	/^	myID      = flag.Int("id", 1, "(jtest only) my id")$/;"	v
+numServer	storagetest.go	/^	numServer = flag.Int("N", 1, "(jtest only) total # of storage servers")$/;"	v
+passCount	storagetest.go	/^	passCount int$/;"	v
+portnum	storagetest.go	/^	portnum   = flag.Int("port", 9019, "port # to listen on")$/;"	v
+st	storagetest.go	/^	st        *storageTester$/;"	v
+statusMap	storagetest.go	/^var statusMap = map[storagerpc.Status]string{$/;"	v
+storageTester	storagetest.go	/^type storageTester struct {$/;"	t
+testAppendGetRemoveList	storagetest.go	/^func testAppendGetRemoveList() {$/;"	f
+testDelayedRevokeListWithLeaseRequest1	storagetest.go	/^func testDelayedRevokeListWithLeaseRequest1() {$/;"	f
+testDelayedRevokeListWithLeaseRequest2	storagetest.go	/^func testDelayedRevokeListWithLeaseRequest2() {$/;"	f
+testDelayedRevokeListWithUpdate1	storagetest.go	/^func testDelayedRevokeListWithUpdate1() {$/;"	f
+testDelayedRevokeListWithUpdate2	storagetest.go	/^func testDelayedRevokeListWithUpdate2() {$/;"	f
+testDelayedRevokeListWithUpdate3	storagetest.go	/^func testDelayedRevokeListWithUpdate3() {$/;"	f
+testDelayedRevokeListWithoutBlocking	storagetest.go	/^func testDelayedRevokeListWithoutBlocking() {$/;"	f
+testDelayedRevokeWithLeaseRequest1	storagetest.go	/^func testDelayedRevokeWithLeaseRequest1() {$/;"	f
+testDelayedRevokeWithLeaseRequest2	storagetest.go	/^func testDelayedRevokeWithLeaseRequest2() {$/;"	f
+testDelayedRevokeWithUpdate1	storagetest.go	/^func testDelayedRevokeWithUpdate1() {$/;"	f
+testDelayedRevokeWithUpdate2	storagetest.go	/^func testDelayedRevokeWithUpdate2() {$/;"	f
+testDelayedRevokeWithUpdate3	storagetest.go	/^func testDelayedRevokeWithUpdate3() {$/;"	f
+testDelayedRevokeWithoutBlocking	storagetest.go	/^func testDelayedRevokeWithoutBlocking() {$/;"	f
+testFunc	storagetest.go	/^type testFunc struct {$/;"	t
+testInitStorageServers	storagetest.go	/^func testInitStorageServers() {$/;"	f
+testPutGet	storagetest.go	/^func testPutGet() {$/;"	f
+testRegex	storagetest.go	/^	testRegex = flag.String("t", "", "test to run")$/;"	v
+testType	storagetest.go	/^	testType  = flag.Int("type", 1, "type of test, 1: jtest, 2: btest")$/;"	v
+testUpdateAfterLeaseExpire	storagetest.go	/^func testUpdateAfterLeaseExpire() {$/;"	f
+testUpdateBeforeLeaseExpire	storagetest.go	/^func testUpdateBeforeLeaseExpire() {$/;"	f
+testUpdateListAfterLeaseExpire	storagetest.go	/^func testUpdateListAfterLeaseExpire() {$/;"	f
+testUpdateListBeforeLeaseExpire	storagetest.go	/^func testUpdateListBeforeLeaseExpire() {$/;"	f
+testUpdateListWithoutLease	storagetest.go	/^func testUpdateListWithoutLease() {$/;"	f
+testUpdateWithoutLease	storagetest.go	/^func testUpdateWithoutLease() {$/;"	f

@@ -1,6 +1,10 @@
 package libstore
 
 import (
+    "log"
+    "os"
+
+    "github.com/cmu440/tribbler/rpc/storagerpc"
 )
 
 type libstore struct {
@@ -37,29 +41,29 @@ var (
 // need to create a brand new HTTP handler to serve the requests (the Libstore may
 // simply reuse the TribServer's HTTP handler since the two run in the same process).
 func NewLibstore(masterServerHostPort, myHostPort string, mode LeaseMode) (store Libstore, e error) {
-
+    return
 }
 
 func (ls *libstore) Get(key string) (v string, e error) {
-
+return
 }
 
 func (ls *libstore) Put(key, value string) (e error) {
-
+return
 }
 
 func (ls *libstore) GetList(key string) (l []string, e error) {
-
+return
 }
 
 func (ls *libstore) RemoveFromList(key, removeItem string) (e error) {
-
+return
 }
 
 func (ls *libstore) AppendToList(key, newItem string) (e error) {
-
+return
 }
 
 func (ls *libstore) RevokeLease(args *storagerpc.RevokeLeaseArgs, reply *storagerpc.RevokeLeaseReply) (e error) {
-
+return
 }

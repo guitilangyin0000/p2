@@ -144,6 +144,7 @@ func (st *storageTester) AppendToList(key, newitem string) (*storagerpc.PutReply
 
 // Check error and status
 func checkErrorStatus(err error, status, expectedStatus storagerpc.Status) bool {
+    LOGE.Printf("reply status %s\n", statusMap[status])
 	if err != nil {
 		LOGE.Println("FAIL: unexpected error returned:", err)
 		failCount++
@@ -269,6 +270,7 @@ func testInitStorageServers() {
 		return
 	}
 	if len(replyR.Servers) != (*numServer) {
+        LOGE.Println(len(replyR.Servers), *numServer)
 		LOGE.Println("FAIL: storage system returned wrong server list:", err)
 		failCount++
 		return
@@ -279,6 +281,7 @@ func testInitStorageServers() {
 	if checkErrorStatus(err, replyG.Status, storagerpc.WrongServer) {
 		return
 	}
+
 	fmt.Println("PASS")
 	passCount++
 }

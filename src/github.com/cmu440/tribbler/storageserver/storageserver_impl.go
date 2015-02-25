@@ -9,10 +9,12 @@ import (
 	"os"
     "sort"
 	"strconv"
+    "strings"
 	"time"
 
 	"github.com/cmu440/tribbler/events"
 	"github.com/cmu440/tribbler/rpc/storagerpc"
+	"github.com/cmu440/tribbler/libstore"
 )
 
 type nodeList []storagerpc.Node
@@ -58,6 +60,7 @@ var (
 //
 // This function should return only once all storage servers have joined the ring,
 // and should return a non-nil error if the storage server could not be started.
+
 func NewStorageServer(masterServerHostPort string, numNodes, port int, nodeID uint32) (StorageServer, error) {
 	server := &storageServer{
 		isMaster:          false,
@@ -65,7 +68,7 @@ func NewStorageServer(masterServerHostPort string, numNodes, port int, nodeID ui
 		nodeMap:           make(map[uint32]bool),
 		numNodes:          numNodes,
 		nodeID:            nodeID,
-		hostport:          "localhost" + strconv.Itoa(port),
+        hostport:          "localhost:" + strconv.Itoa(port),
 		msgChan:           make(chan interface{}, 1000),
 		keyValueMap:       make(map[string]string),
 		keyListMap:        make(map[string][]string),
@@ -82,7 +85,7 @@ func NewStorageServer(masterServerHostPort string, numNodes, port int, nodeID ui
 		NodeID:   server.nodeID,
 	}
 
-	if masterServerHostPort == "" {
+	if masterServerHostPort != "" {         // slave storage server
 		args := storagerpc.RegisterArgs{
 			ServerInfo: node,
 		}
@@ -116,16 +119,15 @@ func NewStorageServer(masterServerHostPort string, numNodes, port int, nodeID ui
 
 	for {
 		err := rpc.Register(storagerpc.Wrap(server))
-		LOGV.Println("rpc register its methods failed")
 		if err == nil {
-			LOGV.Println("rpc register its methods success")
+			LOGV.Println("rpc register its methods success " + strconv.Itoa(port))
 			break
 		}
 	}
 
 	rpc.HandleHTTP()
 
-	l, err := net.Listen("tcp", strconv.Itoa(port))
+    l, err := net.Listen("tcp", "localhost:"+strconv.Itoa(port))
 	if err != nil {
 		LOGE.Fatal("net listen error", err)
 	}
@@ -134,6 +136,7 @@ func NewStorageServer(masterServerHostPort string, numNodes, port int, nodeID ui
 
 	go server.masterHandler()
 
+    LOGV.Println("storageserver listen on port " + strconv.Itoa(port))
 	return server, nil
 }
 
@@ -152,6 +155,7 @@ func (ss *storageServer) masterHandler() {
 			case events.SSGetList:
 				ss.doGetList(&request)
 			case events.SSPut:
+                LOGV.Println("libstore put " + request.Arg.Key+":"+request.Arg.Value)
 				ss.doPut(&request)
 			case events.SSAppendList:
 				ss.doAppendList(&request)
@@ -162,12 +166,73 @@ func (ss *storageServer) masterHandler() {
             case events.SSListRevokeReply:
                 ss.doListRevokeReply(&request)
 			}
-		case <-time.After(time.Duration(time.Microsecond)):
+		case <-time.After(time.Millisecond * 1000):
 			ss.gc()
 		}
-
 	}
 }
+
+func (ss *storageServer) gc() {
+    ss.gcKeyValue()
+    ss.gcKeyList()
+}
+
+func (ss *storageServer) gcKeyValue() {
+    for key, pendPut := range ss.pendingPut {
+        expired := true
+        if lease, present := ss.leaseMap[key]; present {
+            for _, timestamp := range lease {
+                if isValidLease(timestamp) {
+                    expired = false
+                    break
+                }
+            }
+        }
+
+        if expired {
+            delete(ss.leaseMap, key)
+            if (pendPut.Len() > 0) {
+                ss.keyValueMap[key] = pendPut.Back().Value.(*events.SSPut).Arg.Value
+                for e := pendPut.Front(); e != nil; e = e.Next() {
+                    request := e.Value.(events.SSPut)
+                    request.Reply<-&storagerpc.PutReply{Status:storagerpc.OK}
+                }
+                delete(ss.pendingPut, key)
+                delete(ss.pendingPutRevoke, key)
+            }
+        }
+    }
+}
+func (ss *storageServer) gcKeyList() {
+    for key, pendListOps := range ss.pendingListOps {
+        expired := true
+        if lease, present := ss.leaseMap[key]; present {
+            for _, timestamp := range lease {
+                if isValidLease(timestamp) {
+                    expired = false
+                    break
+                }
+            }
+        }
+
+        if expired {
+            delete(ss.leaseMap, key)
+            if (pendListOps.Len() > 0) {
+                for e := pendListOps.Front(); e != nil; e = e.Next() {
+                    switch request := e.Value.(type) {
+                    case events.SSAppendList :
+                        ss.appendList(&request)
+                    case events.SSRemoveList :
+                        ss.removeKeyValueFromList(&request)
+                    }
+                }
+                delete(ss.pendingListOps, key)
+                delete(ss.pendingListRevoke, key)
+            }
+        }
+    }
+}
+
 func (ss *storageServer) RegisterServer(args *storagerpc.RegisterArgs, reply *storagerpc.RegisterReply) error {
 	request := events.SSRegisterServer{
 		Arg:   args,
@@ -179,6 +244,7 @@ func (ss *storageServer) RegisterServer(args *storagerpc.RegisterArgs, reply *st
 	reply.Status = r.Status
 	return nil
 }
+
 func (ss *storageServer) doRegisterServer(request *events.SSRegisterServer) {
 	args := request.Arg
 	reply := new(storagerpc.RegisterReply)
@@ -200,33 +266,147 @@ func (ss *storageServer) doRegisterServer(request *events.SSRegisterServer) {
 }
 
 func (ss *storageServer) GetServers(args *storagerpc.GetServersArgs, reply *storagerpc.GetServersReply) error {
+    request := events.SSGetServers{Reply:make(chan *storagerpc.GetServersReply)}
+    ss.msgChan <- request
+    r := <-request.Reply
+    reply.Status = r.Status
+    reply.Servers = r.Servers
 	return nil
 }
-func (ss *storageServer) doGetServers(request *events.SSGetServers) {
 
+func (ss *storageServer) doGetServers(request *events.SSGetServers) {
+    reply := new(storagerpc.GetServersReply)
+
+    if ss.nodes.Len() == ss.numNodes {
+        reply.Status = storagerpc.OK
+        reply.Servers = ss.nodes
+    } else {
+        reply.Status = storagerpc.NotReady
+    }
+    request.Reply<-reply
+    return
 }
 
 func (ss *storageServer) Get(args *storagerpc.GetArgs, reply *storagerpc.GetReply) error {
+    request := events.SSGet{
+        Arg : args,
+        Reply : make(chan *storagerpc.GetReply),
+    }
+    ss.msgChan<-request
+    r := <-request.Reply
+    reply.Value = r.Value
+    reply.Lease = r.Lease
+    reply.Status = r.Status
 	return nil
 }
 func (ss *storageServer) doGet(request *events.SSGet) {
+    arg := request.Arg
+    key := arg.Key
+    WantLease := arg.WantLease
+    hostport := arg.HostPort
 
+    var reply storagerpc.GetReply
+
+    if value, present := ss.keyValueMap[key]; present {
+        reply.Status = storagerpc.OK
+        reply.Value = value
+        if WantLease {
+            if ss.hasPendingPut(key) {
+                reply.Lease.Granted = false
+            } else {
+                reply.Lease.Granted = true
+                reply.Lease.ValidSeconds = storagerpc.LeaseSeconds
+                if _, present :=  ss.leaseMap[key]; !present {
+                    ss.leaseMap[key] = make(map[string]time.Time)
+                }
+                ss.leaseMap[key][hostport] = time.Now()
+            }
+        }
+    } else {
+        if _, present := ss.checkServer(key); !present {
+            reply.Status = storagerpc.WrongServer
+        } else {
+            if ss.hasPendingPut(key) {
+                LOGV.Printf("%s is put pending\n", key)
+            }
+            reply.Status = storagerpc.KeyNotFound
+        }
+    }
+    request.Reply<-&reply
 }
 
+func (ss *storageServer) checkServer(key string) (storagerpc.Node, bool){
+    found := false
+    var master storagerpc.Node
+    key = strings.Split(key, ":")[0]
+    khash := libstore.StoreHash(key)
+    for i := 0; i < ss.nodes.Len(); i++ {
+        if ss.nodes[i].NodeID >= khash {
+            found = true
+            master = ss.nodes[i]
+            break
+        }
+    }
+    if !found {
+        master = ss.nodes[0]
+    }
+    return master, master.NodeID == khash
+}
 func (ss *storageServer) GetList(args *storagerpc.GetArgs, reply *storagerpc.GetListReply) error {
+    request := events.SSGetList {
+        Arg : args,
+        Reply : make(chan *storagerpc.GetListReply),
+    }
+    ss.msgChan<-request
+    r := <-request.Reply
+    reply.Status = r.Status
+    reply.Lease = r.Lease
+    reply.Value = r.Value
 	return nil
 }
 func (ss *storageServer) doGetList(request *events.SSGetList) {
-
+    arg := request.Arg
+    key := arg.Key
+    reply := new(storagerpc.GetListReply)
+    if value, present := ss.keyListMap[key]; present {
+        reply.Status = storagerpc.OK
+        reply.Value = value
+        if arg.WantLease {
+            if ss.hasPendingListOps(key) {
+                reply.Lease.Granted = false
+            } else {
+                reply.Lease.Granted = true
+                reply.Lease.ValidSeconds = storagerpc.LeaseSeconds
+                if _, ok := ss.leaseMap[key]; !ok {
+                    ss.leaseMap[key] = make(map[string]time.Time)
+                }
+                ss.leaseMap[key][arg.HostPort] = time.Now()
+            }
+        }
+    } else {
+        if _, ok := ss.checkServer(key); !ok {
+            reply.Status = storagerpc.WrongServer
+        } else {
+            if ss.hasPendingListOps(key) {
+                LOGV.Printf("%s is put or remove pending\n", key)
+            }
+            reply.Status = storagerpc.KeyNotFound
+        }
+    }
+    request.Reply<-reply
 }
-
 func (ss *storageServer) Put(args *storagerpc.PutArgs, reply *storagerpc.PutReply) error {
-    request := events.SSPut{args, make(chan *storagerpc.PutReply)}
-    ss.msgChan <- request
+    LOGV.Println("storage server put start")
+    //request := events.SSPut{args, make(chan *storagerpc.PutReply)}
+    request := new(events.SSPut)
+    request.Arg = args
+    request.Reply = make(chan *storagerpc.PutReply)
+    ss.msgChan <- *request
     r := <-request.Reply
     reply.Status = r.Status
     return nil
 }
+
 // 需要考虑已经被client 缓存的key，需要先撤销并且把本地缓存的leaseMap清除,再把对应的keyValueMap更新
 // 需要注意的是libstore端的lease需要重新申请才行，并不能有storageServer将新的更新推送过去
 func (ss *storageServer) doPut(request *events.SSPut) {
@@ -295,7 +475,7 @@ func (ss *storageServer) doPutRevokeReply(request *events.SSPutRevokeReply) {
             ss.keyValueMap[key] = pendingList.Back().Value.(events.SSPut).Arg.Value
 
             for r := pendingList.Front(); r != nil; r = r.Next() {
-                r.Value.(*events.SSPut).Reply <- &storagerpc.PutReply{storagerpc.OK}
+                r.Value.(events.SSPut).Reply <- &storagerpc.PutReply{storagerpc.OK}
             }
         }
         delete(ss.leaseMap, key)
@@ -323,7 +503,7 @@ func (ss *storageServer) AppendToList(args *storagerpc.PutArgs, reply *storagerp
 func (ss *storageServer) doAppendList(request *events.SSAppendList) {
     key := request.Arg.Key
     if ss.hasPendingListOps(key) {
-        ss.pendingListOps[key].PushBack(request);
+        ss.pendingListOps[key].PushBack(*request);
     } else {
         if lease, present := ss.leaseMap[key]; present {
             var counter int = 0
@@ -344,7 +524,7 @@ func (ss *storageServer) doAppendList(request *events.SSAppendList) {
             if counter > 0 {
                 ss.pendingListRevoke[key] = counter
                 ss.pendingListOps[key] = list.New()
-                ss.pendingListOps[key].PushBack(request)
+                ss.pendingListOps[key].PushBack(*request)
             } else {
                 ss.appendList(request)
             }
@@ -380,11 +560,11 @@ func (ss *storageServer) doListRevokeReply(request *events.SSListRevokeReply) {
     if (ss.pendingListRevoke[key] == 0) {   // 说明全都撤销了
         if  opsList, present := ss.pendingListOps[key]; present && opsList.Len() > 0 {
             for r := opsList.Front(); r != nil; r = r.Next() {
-                switch r.Value.(type){
+                switch request := r.Value.(type){
                 case events.SSAppendList:
-                    ss.appendList(r.Value.(*events.SSAppendList))
+                    ss.appendList(&request)
                 case events.SSRemoveList:
-                    ss.removeKeyValueFromList(r.Value.(*events.SSRemoveList))
+                    ss.removeKeyValueFromList(&request)
                 }
             }
 
@@ -399,7 +579,7 @@ func (ss *storageServer) RemoveFromList(args *storagerpc.PutArgs, reply *storage
         Arg : args,
         Reply : make(chan *storagerpc.PutReply),
     }
-    ss.msgChan<-&request
+    ss.msgChan<-request
     r := <-request.Reply
     reply.Status = r.Status
     return nil
@@ -456,9 +636,6 @@ func (ss *storageServer) removeKeyValueFromList(request *events.SSRemoveList) {
     }
 
     request.Reply <- &storagerpc.PutReply{storagerpc.ItemNotFound}
-
-}
-func (ss *storageServer) gc() {
 
 }
 
